@@ -38,6 +38,10 @@ main {
     font-weight: bold;
     user-select: none;
 }
+#top > p > a {
+    color: white;
+    text-decoration: none;
+}
 
 #top > a {
     font-size: 12px;
@@ -71,4 +75,5 @@ pre {
     padding: 12px;
     border-radius: 3px;
     background-color: #dddddd;
+    overflow-x: auto;
 }

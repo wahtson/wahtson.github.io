@@ -73,15 +73,17 @@ if(path == 'config') {
 
 document.querySelectorAll("a").forEach(item => {
     item.addEventListener('click', event => {
-        event.preventDefault()
-        if (new URL(item.href).hash !== "" && document.getElementById(new URL(item.href).hash.substr(1)) != undefined) {
-            
-            scrollTo({
-                top: offset(document.getElementById(new URL(item.href).hash.substr(1))).top - 16,
-                behavior: 'smooth',
-                block: 'start'
-            })
-            history.pushState({}, document.title, item.href)
+        if (new URL(item.href).hash !== "") {
+            event.preventDefault()
+            if(document.getElementById(new URL(item.href).hash.substr(1)) != undefined) {
+                
+                scrollTo({
+                    top: offset(document.getElementById(new URL(item.href).hash.substr(1))).top - 16,
+                    behavior: 'smooth',
+                    block: 'start'
+                })
+                history.pushState({}, document.title, item.href)
+            }
         }
     })
 })

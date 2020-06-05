@@ -21,7 +21,7 @@
 title: Wahtson Wiki
 description: >- # this means to ignore newlines until "baseurl:"
   Wahtson is a pure-configuration Discord bot.
-baseurl: "/wahtson-wiki/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings

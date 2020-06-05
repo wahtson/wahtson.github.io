@@ -13,8 +13,8 @@ if(location.pathname.substr(6) != '') {
     let version = route[0]
     let path = route[1]
 
-    require(['json!/data/versions.json'], (versions) => {
-        require(['json!/data/'+version+'/'+path+'.json'], function(data){
+    require(['json!/wahtson-wiki/data/versions.json'], (versions) => {
+        require(['json!/wahtson-wiki/data/'+version+'/'+path+'.json'], function(data){
     
             document.title = `Wahtson | ${path.capitalizeFirstLetter()} @ ${version}`
 

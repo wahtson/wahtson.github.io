@@ -8,7 +8,7 @@ require.config({
 
 if(location.pathname.substr(6) != '') {
 
-    let route = location.pathname.substr(6).split('/')
+    let route = location.pathname.substr(6+'wahtson-wiki'.length).split('/')
 
     let version = route[0]
     let path = route[1]

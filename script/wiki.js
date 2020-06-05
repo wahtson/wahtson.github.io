@@ -12,6 +12,6 @@ let path
 if(route[0] == 'config.toml') path = 'config'
 console.log(version)
 
-require(['json!./data/'+version+'/'+path+'.json'], (data) => {
-    document.write(data)
+require(['json!data/'+version+'/'+path+'.json'], (data) => {
+    console.log(data)
 })

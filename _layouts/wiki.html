@@ -8,9 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wahtson - Page Loading...</title>
-    <base href="{{ site.baseurl }}" />
-    <link rel="stylesheet" href="/style/main.css" />
-    <link rel="stylesheet" href="/style/wiki.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/style/main.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/style/wiki.css" />
 </head>
 <body>
     <div id="top">
@@ -27,6 +26,6 @@
         const data = {{ site.data[v][page.path] | jsonify }}
         const versions = {{ site.data.versions | jsonify }}
     </script>
-    <script src="/script/wiki.js"></script>
+    <script src="{{ site.baseurl }}/script/wiki.js"></script>
 </body>
 </html>

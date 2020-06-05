@@ -1,0 +1,190 @@
+{
+    "source_code": "https://github.com/nanaian/wahtson/blob/v2.1.0",
+    "example_config": "",
+    "events": {
+        "on_unknown_command": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "on_new_member": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "pin": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "reactions": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "commands": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "purchases": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        }
+    },
+    "actions": {
+        "SEND_TO_CHANNEL": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "SEND_TO_USER": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "REPLY": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "REPLY_DM": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "GRANT_ROLE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "REVOKE_ROLE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "DELETE_SOURCE_MESSAGE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "COPY_SOURCE_MESSAGE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "GET_BALANCE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "PURCHASE_ITEM": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "GIVE_COINS": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "SEND_HELP": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "DO_NOTHING": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        }
+    },
+    "conditions": {
+        "HAS_ROLE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "IS_NITRO_BOOSTER": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "PREVIOUS_ACTION_SKIPPED": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "REQUIRE_COINS": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "TIME_SINCE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "HAS_ITEM": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "HAS_ARGS": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "ARG_EQUALS": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "ARG_TYPE": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "WAIT_FOR_REACTION": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        },
+        "WAIT": {
+            "desc": "",
+            "example": "",
+            "extra": ""
+        }
+    },
+    "placeholders": {
+        "desc": "Some actions can use placeholders in text which are replaced dynamically with a value.",
+        "list": {
+            "$balance": {
+                "actions": ["GET_BALANCE", "PURCHASE_ITEM", "GIVE_COINS"],
+                "desc": "User balance (after transaction if one happens)"
+            },
+            "$outstanding": {
+                "actions": ["PURCHASE_ITEM"],
+                "desc": "How many more coins are needed to be able to fulfill the transaction"
+            }
+        }
+    },
+    "types": {
+        "list": {
+            "ChannelResolvable ": "Name or ID",
+            "MessageResolvable": "Name or ID",
+            "EmojiResolvable": "Name or ID",
+            "RoleResolvable": "Name or ID",
+            "MemberResolvable": "Username#Discriminator (e.g. Wumpus#0000) or ID",
+            "TimeObject": "{ years = Number, months = Number, days= Number, hours = Number, minutes = Number, seconds = Number, milliseconds = Number }",
+            "ModifierObject": "{ item = String, options = OptionObject }",
+            "OptionObject": "{ any: any }"
+        },
+        "extra": [
+            "Note: TimeObject fields are optional. {} will be calculated as 0",
+            "Note: ModifierObject options fields are optional. {} will be calculated as no change, { amount = 100 } would override the amount option on the action.",
+            "Note: Arrays are written as [Value, Value, ...]"
+        ]
+    }
+}

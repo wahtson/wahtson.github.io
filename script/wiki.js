@@ -1,6 +1,6 @@
 require.config({
     paths : {
-        text: 'script/require/json',
+        text: 'script/require/text',
         async: 'script/require/async',
         json: 'script/require/json'
     }

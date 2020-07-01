@@ -50,3 +50,4 @@ theme: minima
 #   - vendor/ruby/
 
 permalink: /wiki/:version/:path
+post_dirs: false

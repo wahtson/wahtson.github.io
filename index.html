@@ -7,19 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wahtson Wiki</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/style/main.css" />
-    <link rel="icon" type="image/png" href="/assets/icon.png" />
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/icon.png" />
 </head>
 <body>
     <div id="top">
-        <p><a href="/">Wahtson Wiki</a></p>
-        <a href="https://github.com/nanaian/wahtson"><p>Github</p></a>
+        <a class="home" href="/"><img src="{{ site.baseurl }}/assets/icon.png" /></a>
+        <a href="https://github.com/wahtson/bot"><p>Github</p></a>
         <a href="https://npmjs.org/package/wahtson"><p>Install</p></a>
+        <a href="{{ site.baseurl }}/versions"><p>Versions</p></a>
     </div>
     <main>
         <h1>Wahtson</h1>
         <pre>$ npm install -g wahtson<br>$ wahtson -c path/to/config.toml</pre>
         <p>Wahtson is a pure-configuration Discord bot.</p>
-        <p><a href="{{ site.baseurl }}/wiki/2.2.0/config">Configuration</a></p>
+        <p><a href="{{ site.baseurl }}/wiki/2.2.1/config">Configuration</a></p>
     </main>
     <script src="{{ site.baseurl }}/script/index.js"></script>
 </body>

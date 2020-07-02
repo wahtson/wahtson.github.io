@@ -42,6 +42,19 @@ main {
     color: white;
     text-decoration: none;
 }
+#top > a.home {
+    position: absolute;
+    margin: 0;
+    top: 8px;
+    left: 8px;
+    padding: 0;
+    height: 48px;
+    width: 48px;
+}
+#top > a.home > img {
+    height: 48px;
+    width: 48px;
+}
 
 #top > a {
     font-size: 12px;

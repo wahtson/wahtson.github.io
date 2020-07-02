@@ -1,13 +1,12 @@
 ---
 ---
-{% assign v = page.version | replace: ".", "_" %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wahtson - Page Loading...</title>
+    <title>Wahtson Wiki</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/style/main.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/style/wiki.css" />
     <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/icon.png" />
 </head>
 <body>
@@ -17,14 +16,12 @@
         <a href="https://npmjs.org/package/wahtson"><p>Install</p></a>
         <a href="{{ site.baseurl }}/versions"><p>Versions</p></a>
     </div>
-    <div id="sidebar"></div>
-    <main></main>
-    <script>
-        const version = "{{ page.version }}"
-        const path = "{{ page.path }}"
-        const data = {{ site.data[v][page.path] | jsonify }}
-        const versions = {{ site.data.versions | jsonify }}
-    </script>
-    <script src="{{ site.baseurl }}/script/wiki.js"></script>
+    <main>
+        <h1>Versions</h1>
+        <p><a href="{{ site.baseurl }}/wiki/2.2.1/config">Latest version</a></p>
+        <p><a href="{{ site.baseurl }}/wiki/2.2.1/config">v2.2.1</a></p>
+        <p><a href="{{ site.baseurl }}/wiki/2.1.0/config">v2.1.0</a></p>
+    </main>
+    <script src="{{ site.baseurl }}/script/index.js"></script>
 </body>
 </html>

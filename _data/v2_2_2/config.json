@@ -208,7 +208,7 @@
         },
         "SCHEDULE": {
             "desc": ["Schedules proceeding actions to run after some time."],
-            "example": ["type = \"SCHEDULE\"", "time = { seconds = 10 }", "cancel_if_passed = false"],
+            "example": ["type = \"SCHEDULE\"", "time = TimeObject", "cancel_if_passed = Boolean"],
             "extra": ["If <code>cancel_if_passed</code> is true then the schedule will not run if the bot was offline when it was meant to run"]
         }
     },
@@ -261,12 +261,12 @@
         },
         "WAIT_FOR_REACTION": {
             "desc": ["Runs action if the specified reaction is added by the user"],
-            "example": ["{ type = 'WAIT_FOR_REACTION', emoji = EmojiResolvable, time = TimeObj }"],
+            "example": ["{ type = 'WAIT_FOR_REACTION', emoji = EmojiResolvable, time = TimeObject }"],
             "extra": [""]
         },
         "WAIT": {
             "desc": ["Runs action after the specified time"],
-            "example": ["{ type = 'WAIT', time = TimeObj }"],
+            "example": ["{ type = 'WAIT', time = TimeObject }"],
             "extra": [""]
         },
         "IS_DM": {

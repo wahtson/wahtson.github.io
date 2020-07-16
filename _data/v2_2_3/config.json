@@ -12,7 +12,9 @@
     ],
     "details": [
         "Anything with 2 sets of square brackets (e.g. <code>[[key]]</code>) can be defined multiple times to create an array. For example multiple of <code>[[commands.actions]]</code> would define multiple actions for a command.",
-        "Options can now use math and multi values. Math options (<code>{ type = 'MATH' operator = MathOperator/Array[MathOperator], operand = Number/Array[Number], value = Number }</code>) calculate mathematical operations and return the final value. Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias."
+        "Options can now use math and multi values.",
+        "Math options (<code>{ type = 'MATH' operator = Array[MathOperator], input = Number }</code>) calculate mathematical operations and return the final value.",
+        "Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias."
     ],
     "events": {
         "on_unknown_command": {
@@ -320,12 +322,15 @@
             "MemberResolvable": ["Username#Discriminator (e.g. Wumpus#0000) or ID"],
             "TimeObject": ["{ years = Number, months = Number, days= Number, hours = Number, minutes = Number, seconds = Number, milliseconds = Number }"],
             "ModifierObject": ["{ item = String, options = OptionObject }"],
-            "OptionObject": ["{ any: any }"]
+            "OptionObject": ["{ any = Any, ... }"],
+            "MathOperator": ["{ type = OperatorType, operand = Number }"],
+            "OperatorType": ["One of 'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE', 'ROUND', 'FLOOR', 'CEILING'"]
         },
         "extra": [
             "TimeObject fields are optional. {} will be calculated as 0",
             "ModifierObject options fields are optional. {} will be calculated as no change, { amount = 100 } would override the amount option on the action.",
-            "Arrays are written as [Value, Value, ...]"
+            "Arrays are written as [Value, Value, ...]",
+            "<code>operand</code> is not required in ROUND, FLOOR or CEILING MathOperator options"
         ]
     }
 }

@@ -296,7 +296,7 @@
             "MemberResolvable": ["Username#Discriminator (e.g. Wumpus#0000) or ID"],
             "TimeObject": ["{ years = Number, months = Number, days= Number, hours = Number, minutes = Number, seconds = Number, milliseconds = Number }"],
             "ModifierObject": ["{ item = String, options = OptionObject }"],
-            "OptionObject": ["{ any: any }"]
+            "OptionObject": ["{ any = Any, ... }"]
         },
         "extra": [
             "TimeObject fields are optional. {} will be calculated as 0",

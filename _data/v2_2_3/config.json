@@ -14,7 +14,8 @@
         "Anything with 2 sets of square brackets (e.g. <code>[[key]]</code>) can be defined multiple times to create an array. For example multiple of <code>[[commands.actions]]</code> would define multiple actions for a command.",
         "Options can now use math and multi values.",
         "Math options (<code>{ type = 'MATH' operator = Array[MathOperator], input = Number }</code>) calculate mathematical operations and return the final value.",
-        "Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias."
+        "Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias.",
+        "Multi options are handled before math options"
     ],
     "events": {
         "on_unknown_command": {

@@ -10,7 +10,10 @@
         "[economy]",
         "starting_coins = Integer"
     ],
-    "details": ["Anything with 2 sets of square brackets (e.g. <code>[[key]]</code>) can be defined multiple times to create an array. For example multiple of <code>[[commands.actions]]</code> would define multiple actions for a command.","Options can now use math and multi values. Math options (<code>{ type = 'MATH' operator = MathOperator/Array[MathOperator], operand = Number/Array[Number], value = Number }</code>) calculate mathematical operations and return the final value. Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias."],
+    "details": [
+        "Anything with 2 sets of square brackets (e.g. <code>[[key]]</code>) can be defined multiple times to create an array. For example multiple of <code>[[commands.actions]]</code> would define multiple actions for a command.",
+        "Options can now use math and multi values. Math options (<code>{ type = 'MATH' operator = MathOperator/Array[MathOperator], operand = Number/Array[Number], value = Number }</code>) calculate mathematical operations and return the final value. Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias."
+    ],
     "events": {
         "on_unknown_command": {
             "desc": ["Fires when an unknown command is sent."],

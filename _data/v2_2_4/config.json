@@ -1,6 +1,6 @@
 {
-    "source_code": "https://github.com/wahtson/bot/tree/v2.2.3",
-    "example_config": "https://github.com/wahtson/bot/blob/v2.2.3/config-example.toml",
+    "source_code": "https://github.com/wahtson/bot/tree/v2.2.4",
+    "example_config": "https://github.com/wahtson/bot/blob/v2.2.4/config-example.toml",
     "download": "https://github.com/wahtson/bot",
     "options": [
         "bot_token = String",

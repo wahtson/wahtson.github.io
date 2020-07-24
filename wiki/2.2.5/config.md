@@ -2,5 +2,5 @@
 layout: wiki
 
 path: config
-version: v2.2.4
+version: v2.2.5
 ---

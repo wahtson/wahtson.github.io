@@ -240,15 +240,15 @@
             "example": ["{ type = 'REQUIRE_COINS', amount = Integer, deduct = Boolean }"],
             "extra": ["<code>amount</code> is how many coins are required, <code>deduct</code> is whether the user should have those coins removed from their balance (Calculated when condition runs. If multiple <code>REQUIRE_COINS</code> conditions are used in an event, you should make the last one deduct so that the balance is the same until the end)."]
         },
-        "TIME_SINCE": {
-            "desc": ["Runs action if an amount of time has passed since the last run of the command"],
-            "example": ["{ type = 'TIME_SINCE', time = TimeObject, count_use = Boolean }"],
-            "extra": ["<code>time</code> is how long the user must wait, <code>count_use</code> is whether the user should have this action count towards the cooldown (Set to true only on last <code>TIME_SINCE</code> condition in event, all others should be false)"]
-        },
         "HAS_ITEM": {
             "desc": ["Runs action if the user has an item"],
             "example": ["{ type = 'HAS_ITEM', item = String }"],
             "extra": [""]
+        },
+        "TIME_SINCE": {
+            "desc": ["Runs action if an amount of time has passed since the last run of the command"],
+            "example": ["{ type = 'TIME_SINCE', time = TimeObject, count_use = Boolean }"],
+            "extra": ["<code>time</code> is how long the user must wait, <code>count_use</code> is whether the user should have this action count towards the cooldown (Set to true only on last <code>TIME_SINCE</code> condition in event, all others should be false)"]
         },
         "HAS_ARGS": {
             "desc": ["Runs action if there are <code>length</code> or more arguments (<code>negate = true</code> for less than <code>length</code> arguments)"],
@@ -260,6 +260,11 @@
             "example": ["{ type = 'ARG_EQUALS', value = String, index = Integer }"],
             "extra": [""]
         },
+        "OPTION_EQUALS": {
+            "desc": ["Runs action if the specified option is equal to the chosen value"],
+            "example": ["{ type = 'OPTION_EQUALS', value = String, index = Integer }"],
+            "extra": [""]
+        },
         "ARG_TYPE": {
             "desc": ["Runs action if the specified argument is of the specified type (<code>value</code> option defines desired type)"],
             "example": [ "{ type = 'ARG_TYPE', value = String, index = Integer }"],
@@ -268,6 +273,11 @@
         "WAIT_FOR_REACTION": {
             "desc": ["Runs action if the specified reaction is added by the user"],
             "example": ["{ type = 'WAIT_FOR_REACTION', emoji = EmojiResolvable, time = TimeObject }"],
+            "extra": [""]
+        },
+        "RANDOM_CHANCE": {
+            "desc": ["Runs action <code>percent</code>% of the time"],
+            "example": ["{ type = 'RANDOM_CHANCE', precent = Number }"],
             "extra": [""]
         },
         "WAIT": {

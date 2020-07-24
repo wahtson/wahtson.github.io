@@ -5,7 +5,7 @@
     "options": [
         "bot_token = String",
         "server_id = Snowflake",
-        "command_prefix = String",
+        "command_prefix = String/Array[String]",
         "",
         "[economy]",
         "starting_coins = Integer"

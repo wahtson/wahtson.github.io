@@ -49,7 +49,7 @@ if(path == 'config') {
                 for(const [key1, value1] of Object.entries(value.list)) {
                     document.querySelector("#sidebar").innerHTML += `<p><a href="${location.pathname}#${key}.${key1}">${key1}</a></p>`
 
-                    html += `<div id="${key}.${key1}"><h4><a href="${location.pathname}#${key}.${key1}">${key1}</a></h4><p>${value1.desc.join("<br>")}</p>${value1.actions.map(a => { return `<a href="${location.pathname}#${a}">${a}</a>` }).join("<br>")}</div>`
+                    html += `<div id="${key}.${key1}"><h4><a href="${location.pathname}#${key}.${key1}">${key1}</a></h4><p>${value1.desc.join("<br>")}</p>${value1.actions.map(a => { return `<a href="${location.pathname}#actions.${a}">${a}</a>` }).join("<br>")}</div>`
                 }
             }
             if(key == 'types') {

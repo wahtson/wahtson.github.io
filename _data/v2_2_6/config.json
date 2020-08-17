@@ -1,0 +1,347 @@
+{
+    "source_code": "https://github.com/wahtson/bot/tree/v2.2.6",
+    "example_config": "https://github.com/wahtson/bot/blob/v2.2.6/config-example.toml",
+    "download": "https://github.com/wahtson/bot",
+    "options": [
+        "bot_token = String",
+        "server_id = Snowflake",
+        "command_prefix = String/Array[String]",
+        "",
+        "[economy]",
+        "starting_coins = Integer"
+    ],
+    "details": [
+        "Anything with 2 sets of square brackets (e.g. <code>[[key]]</code>) can be defined multiple times to create an array. For example multiple of <code>[[commands.actions]]</code> would define multiple actions for a command.",
+        "Options can now use math and multi values.",
+        "Math options (<code>{ type = 'MATH' operator = Array[MathOperator], input = Number }</code>) calculate mathematical operations and return the final value.",
+        "Multi options (<code>{ type = 'MULTI' choices = Array[Any], weights = Array[Number] }</code>) return a random choice with weighted bias.",
+        "Multi options are handled before math options"
+    ],
+    "events": {
+        "on_unknown_command": {
+            "desc": ["Fires when an unknown command is sent."],
+            "example": [
+                "[on_unknown_command]",
+                "# Action goes here"
+            ],
+            "extra": [""]
+        },
+        "on_new_member": {
+            "desc": ["Fires when a new member joins the server"],
+            "example": [
+                "[on_new_member]",
+                "# Action goes here"
+            ],
+            "extra": [""]
+        },
+        "pin": {
+            "desc": ["Fires when a message gets <code>count</code> reactions of <code>emoji</code> if not in a channel listed in <code>disallow_from</code>"],
+            "example": [
+                "[pin]",
+                "emoji = EmojiResolvable",
+                "count = Integer",
+                "disallow_from = Array[ChannelResolvable]",
+                "    [[pin.actions]]",
+                "    # Action goes here"
+            ],
+            "extra": [""]
+        },
+        "reactions": {
+            "desc": ["Fires when a reaction of <code>emoji</code> is added or removed from <code>message</code> (if undefined, any message)"],
+            "example": [
+                "[[reactions]]",
+                "message = MessageResolvable",
+                "emoji = EmojiResolvable",
+                "    [[reactions.add_actions]]",
+                "    # Action goes here",
+                "",
+                "    [[reactions.remove_actions]]",
+                "    # Action goes here"
+            ],
+            "extra": [""]
+        },
+        "commands": {
+            "desc": ["Fires when a command is run"],
+            "example": [
+                "[[commands]]",
+                "usage = String",
+                "category = String",
+                "description = String",
+                "hidden = Boolean",
+                "    [[commands.actions]]",
+                "    # Action goes here"
+            ],
+            "extra": [
+                "<code>category</code> is used to group commands in the SEND_HELP action.",
+                "<code>description</code> shows what the command does in the SEND_HELP category page the command is on",
+                "<code>hidden</code> determines whether the command should be hidden from the SEND_HELP action"
+            ]
+        },
+        "purchases": {
+            "desc": ["Fires when a purchase is completed"],
+            "example": [
+                "[[purchases]]",
+                "item = String",
+                "    [[purchases.actions]]",
+                "    # Action goes here"
+            ],
+            "extra": [""]
+        }
+    },
+    "actions": {
+        "desc": [
+            "Adding the <code>when</code> property to an action sets the condition(s). Can be one condition or an array.",
+            "Adding the <code>modifiers</code> property to an action sets how items a user has purchased affect the options of the action. (Takes : <code>Array[ModifierObject]</code>).",
+            "Message actions can now send files and an embed."
+        ],
+        "SEND_TO_CHANNEL": {
+            "desc": ["Sends a message in the specified channel"],
+            "example": [
+                "type = \"SEND_TO_CHANNEL\"",
+                "text = String",
+                "to = ChannelResolvable"
+            ],
+            "extra": ["<code>text</code> determines the message content. <code>to</code> determines what channel to send to."]
+        },
+        "SEND_TO_USER": {
+            "desc": ["Sends a message to the specified user"],
+            "example": [
+                "type = \"SEND_TO_USER\"",
+                "text = String",
+                "to = MemberResolvable"
+            ],
+            "extra": ["<code>text</code> determines the message content. <code>to</code> determines what user to send to."]
+        },
+        "REPLY": {
+            "desc": ["Sends a message in the channel that the event fired from"],
+            "example": [
+                "type = \"REPLY\"",
+                "text = String"
+            ],
+            "extra": ["<code>text</code> determines the message content"]
+        },
+        "REPLY_DM": {
+            "desc": ["Sends a message in DMs with the user that the event fired from"],
+            "example": [
+                "type = \"REPLY_DM\"",
+                "text = String"
+            ],
+            "extra": ["<code>text</code> determines the message content"]
+        },
+        "GRANT_ROLE": {
+            "desc": ["Adds a role to the users roles in the server"],
+            "example": [
+                "type = \"GRANT_ROLE\"",
+                "role = RoleResolvable"
+            ],
+            "extra": ["<code>role</code> determines the role the user is given"]
+        },
+        "REVOKE_ROLE": {
+            "desc": ["Adds a role to the users roles in the server"],
+            "example": [
+                "type = \"REVOKE_ROLE\"",
+                "role = RoleResolvable"
+            ],
+            "extra": ["<code>role</code> determines the role the user is given"]
+        },
+        "DELETE_SOURCE_MESSAGE": {
+            "desc": ["Removes the message that the event fired from"],
+            "example": ["type = \"DELETE_SOURCE_MESSAGE\""],
+            "extra": [""]
+        },
+        "COPY_SOURCE_MESSAGE": {
+            "desc": ["Copies the message to another channel in an embed"],
+            "example": [
+                "type = \"COPY_SOURCE_MESSAGE\"",
+                "to = ChannelResolvable"
+            ],
+            "extra": ["<code>to</code> is the channel the message is sent to"]
+        },
+        "GET_BALANCE": {
+            "desc": ["Gets the balance of the user and sends it in the source channel"],
+            "example": [
+                "type = \"GET_BALANCE\"",
+                "text = String"
+            ],
+            "extra": [""]
+        },
+        "PURCHASE_ITEM": {
+            "desc": ["Purchases an item for the user if they have enough coins"],
+            "example": [
+                "type = \"PURCHASE_ITEM\"",
+                "item = String",
+                "price = Integer",
+                "repeatable = Boolean",
+                "text_success = String",
+                "text_poor = String",
+                "text_duplicate = String"
+            ],
+            "extra": ["<code>item</code>: name of the item, <code>price</code>: number of coins required, <code>text_success</code>: Message sent when successful, <code>text_poor</code>: Message sent when lacking coins, <code>text_duplicate</code>: Message sent when the item is already owned"]
+        },
+        "GIVE_COINS": {
+            "desc": ["Adds <code>amount</code> coins to the user's balance"],
+            "example": [
+                "type = \"GIVE_COINS\"",
+                "amount = Integer"
+            ],
+            "extra": [""]
+        },
+        "SEND_HELP": {
+            "desc": ["Sends command help to the channel it was fired from"],
+            "example": [
+                "type = \"SEND_HELP\"",
+                "page = String"
+            ],
+            "extra": [
+                "To allow the user sending the command to specify the page, set the page to $arg0",
+                "Try not to include spaces in category names"
+            ]
+        },
+        "DO_NOTHING": {
+            "desc": ["Does nothing. INTENDED FOR ACTION LOGIC PURPOSES."],
+            "example": ["type = \"DO_NOTHING\""],
+            "extra": [""]
+        },
+        "TRANSFER_COINS": {
+            "desc": ["Transfers coins from one user to another"],
+            "example": ["type = \"TRANSFER_COINS\"", "to = UserResolvable", "from = UserResolvable", "amount = Number"],
+            "extra": [""]
+        },
+        "WEBHOOK": {
+            "desc": ["Sends a message using Discord's webhook messaging service"],
+            "example": ["type = \"WEBHOOK\"", "webhook_url = URL", "avatar_url = URL", "display_name = String", "text = String"],
+            "extra": ["Behaves similarly to REPLY.", "Can use multiple embeds in one message and change name and icon of sender."]
+        },
+        "SCHEDULE": {
+            "desc": ["Schedules proceeding actions to run after some time."],
+            "example": ["type = \"SCHEDULE\"", "time = TimeObject", "cancel_if_passed = Boolean"],
+            "extra": ["If <code>cancel_if_passed</code> is true then the schedule will not run if the bot was offline when it was meant to run"]
+        }
+    },
+    "conditions": {
+        "desc": ["All conditions have an option, <code>negate</code> (Boolean optional) which, when true, will make the action run if the condition is not met."],
+        "HAS_ROLE": {
+            "desc": ["Runs action if the user causing the event has a specific role"],
+            "example": ["{ type = 'HAS_ROLE', role = String }"],
+            "extra": ["<code>role</code> specifies which role is to be checked for"]
+        },
+        "IS_NITRO_BOOSTER": {
+            "desc": ["Runs action if the previous event in the chain was skipped due to not meeting its condition(s)"],
+            "example": ["{ type = 'IS_NITRO_BOOSTER', months = Number }"],
+            "extra": ["<code>months</code> specifies how many months ago to look for server boosts (e.g. months = 3 would check if the user has boosted in the past three months"]
+        },
+        "PREVIOUS_ACTION_SKIPPED": {
+            "desc": ["Runs action if the previous event in the chain was skipped due to not meeting its condition(s)"],
+            "example": ["{ type = 'PREVIOUS_ACTION_SKIPPED', ago = Integer }"],
+            "extra": [""]
+        },
+        "REQUIRE_COINS": {
+            "desc": ["Runs action if the user has enough coins"],
+            "example": ["{ type = 'REQUIRE_COINS', amount = Integer, deduct = Boolean }"],
+            "extra": ["<code>amount</code> is how many coins are required, <code>deduct</code> is whether the user should have those coins removed from their balance (Calculated when condition runs. If multiple <code>REQUIRE_COINS</code> conditions are used in an event, you should make the last one deduct so that the balance is the same until the end)."]
+        },
+        "HAS_ITEM": {
+            "desc": ["Runs action if the user has an item"],
+            "example": ["{ type = 'HAS_ITEM', item = String }"],
+            "extra": [""]
+        },
+        "TIME_SINCE": {
+            "desc": ["Runs action if an amount of time has passed since the last run of the command"],
+            "example": ["{ type = 'TIME_SINCE', time = TimeObject, count_use = Boolean }"],
+            "extra": ["<code>time</code> is how long the user must wait, <code>count_use</code> is whether the user should have this action count towards the cooldown (Set to true only on last <code>TIME_SINCE</code> condition in event, all others should be false)"]
+        },
+        "HAS_ARGS": {
+            "desc": ["Runs action if there are <code>length</code> or more arguments (<code>negate = true</code> for less than <code>length</code> arguments)"],
+            "example": ["{ type = 'HAS_ARGS', length = Integer }"],
+            "extra": [""]
+        },
+        "ARG_EQUALS": {
+            "desc": ["Runs action if the specified argument is equal to the chosen value"],
+            "example": ["{ type = 'ARG_EQUALS', value = String, index = Integer }"],
+            "extra": [""]
+        },
+        "OPTION_EQUALS": {
+            "desc": ["Runs action if the specified option is equal to the chosen value"],
+            "example": ["{ type = 'OPTION_EQUALS', value = String, index = Integer }"],
+            "extra": [""]
+        },
+        "ARG_TYPE": {
+            "desc": ["Runs action if the specified argument is of the specified type (<code>value</code> option defines desired type)"],
+            "example": [ "{ type = 'ARG_TYPE', value = String, index = Integer }"],
+            "extra": ["Possible types: <code>String</code>, <code>Number</code>, <code>Channel</code>, <code>Member</code>, <code>Role</code>"]
+        },
+        "WAIT_FOR_REACTION": {
+            "desc": ["Runs action if the specified reaction is added by the user"],
+            "example": ["{ type = 'WAIT_FOR_REACTION', emoji = EmojiResolvable, time = TimeObject }"],
+            "extra": [""]
+        },
+        "RANDOM_CHANCE": {
+            "desc": ["Runs action <code>percent</code>% of the time"],
+            "example": ["{ type = 'RANDOM_CHANCE', percent = Number }"],
+            "extra": [""]
+        },
+        "WAIT": {
+            "desc": ["Runs action after the specified time"],
+            "example": ["{ type = 'WAIT', time = TimeObject }"],
+            "extra": [""]
+        },
+        "IS_DM": {
+            "desc": ["Runs action if the event channel is a DM channel"],
+            "example": ["{ type = 'IS_DM' }"],
+            "extra": [""]
+        }
+    },
+    "placeholders": {
+        "desc": ["Some actions can use placeholders in text which are replaced dynamically with a value."],
+        "list": {
+            "$_key": {
+                "actions": ["ANY"],
+                "desc": ["Gets the value of an option on the action"]
+            },
+            "$:member": {
+                "actions": ["ANY"],
+                "desc": ["The user that the event fired with. Can be used to @mention the user in a response"]
+            },
+            "$:channel": {
+                "actions": ["ANY"],
+                "desc": ["The channel that the event fired with. Can be used to #mention the channel in a response"]
+            },
+            "$:message": {
+                "actions": ["ANY"],
+                "desc": ["The message that the event fired with. Can be used to repeat the content of the message in a response"]
+            },
+            "$:command": {
+                "actions": ["ANY"],
+                "desc": ["The command that the event fired from. Can be used to repeat the command in a response"]
+            },
+            "$balance": {
+                "actions": ["GET_BALANCE", "PURCHASE_ITEM", "GIVE_COINS"],
+                "desc": ["User balance (after transaction if one happens)"]
+            },
+            "$outstanding": {
+                "actions": ["PURCHASE_ITEM"],
+                "desc": ["How many more coins are needed to be able to fulfill the transaction"]
+            }
+        }
+    },
+    "types": {
+        "list": {
+            "ChannelResolvable": ["Name or ID"],
+            "MessageResolvable": ["Name or ID"],
+            "EmojiResolvable": ["Name or ID"],
+            "RoleResolvable": ["Name or ID"],
+            "MemberResolvable": ["Username#Discriminator (e.g. Wumpus#0000) or ID"],
+            "TimeObject": ["{ years = Number, months = Number, days= Number, hours = Number, minutes = Number, seconds = Number, milliseconds = Number }"],
+            "ModifierObject": ["{ item = String, options = OptionObject }"],
+            "OptionObject": ["{ any = Any, ... }"],
+            "MathOperator": ["{ type = OperatorType, operand = Number }"],
+            "OperatorType": ["One of 'ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE', 'ROUND', 'FLOOR', 'CEILING'"]
+        },
+        "extra": [
+            "TimeObject fields are optional. {} will be calculated as 0",
+            "ModifierObject options fields are optional. {} will be calculated as no change, { amount = 100 } would override the amount option on the action.",
+            "Arrays are written as [Value, Value, ...]",
+            "<code>operand</code> is not required in ROUND, FLOOR or CEILING MathOperator options"
+        ]
+    }
+}
